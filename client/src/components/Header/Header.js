@@ -1,11 +1,14 @@
 import React from 'react'
 import './Header.css'
-import {Link} from 'react-router-dom'
+import {BrowserRouter, Link} from 'react-router-dom'
 const Header = () => {
   return (
+    <BrowserRouter>
     <div>
-      <Link>Intuitive Quiz Hub</Link>
+      <Link to="/" className='title'>Intuitive Quiz Hub</Link>
+      <hr className='divider'/>
     </div>
+    </BrowserRouter>
   )
 }
 
