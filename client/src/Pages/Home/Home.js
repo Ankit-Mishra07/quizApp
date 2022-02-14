@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, MenuItem, TextField } from "@material-ui/core";
 import "./Home.css";
 import Categories from "../../CatData/Categories";
-const Home = () => {
+const Home = ({name, setName}) => {
+  const [category, setCategory] = useState("")
+  const [difficulty, setDifficulty] = useState("")
+  const [error, setError] = useState("")
+
   return (
     <div className="content">
       <div className="settings">
@@ -13,12 +17,15 @@ const Home = () => {
             label="Enter Your Name"
             variant="outlined"
             style={{ marginBottom: 25 }}
+            onChange={(e) => setName(e.target.value)}
           />
           <TextField
             select
             label="Select Category"
             variant="outlined"
             style={{ marginBottom: 30 }}
+            onChange={(e) => setCategory(e.target.value)}
+            value={category}
           >
             {Categories.map((cat) => (
               <MenuItem key={cat.category} value={cat.value}>
@@ -32,6 +39,8 @@ const Home = () => {
           label='Select Difficulty'
           variant="outlined"
           style={{marginBottom : 30}}
+          value={difficulty}
+          onChange={(e) => setDifficulty(e.target.value)}
           >
             <MenuItem key="Easy" value="easy">
               Easy
@@ -48,6 +57,7 @@ const Home = () => {
           variant="contained"
           color="primary"
           size='large'
+          onClick={handleSubmit}
           >
             Start Quiz
           </Button>
