@@ -1,21 +1,30 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from "react";
+import {CircularProgress} from '@material-ui/core'
+const Quiz = ({ name, score, questions, setQuestions, setScore }) => {
+  const [options, setOptions] = useState([]);
+  const [currQues, setCurrQues] = useState(0);
 
-const Quiz = ({name, score, questions, setQuestions, setScore}) => {
-  
-  const [options, setOptions] = useState()
-  const [currQues, setCurrQues] = useState(0)
+  const handleShuffle = (optionss) => {
+   return optionss.sort(() => Math.random() - 0.5);
+  }
   useEffect(() => {
-    console.log(questions)
+    console.log("questions", questions);
 
-    setOptions(questions && handleShuffle([questions[currQues]?.correct_answer,
-      ...questions[currQues]?.incorrect_answer])
-    )
-  },[questions])
-    return (
-    <div>
+    setOptions(
+      questions &&
+        handleShuffle([
+          questions[currQues]?.correct_answer,
+          ...questions[currQues]?.incorrect_answers
+        ])
+    );
+  }, [questions]);
 
-    </div>
-  )
-}
+  return <div>
+    <span className="subtitle">
+      Welcome, {name}
+    </span>
 
-export default Quiz
+  </div>;
+};
+
+export default Quiz;
