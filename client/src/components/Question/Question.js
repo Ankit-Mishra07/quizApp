@@ -24,7 +24,10 @@ const Question = ({
 
           {
             options && options.map(i => (
-              <button>
+              <button
+              onClick={() => {}}
+              
+              >
                 {i}
               </button>
             ))
