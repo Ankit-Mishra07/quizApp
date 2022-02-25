@@ -10,15 +10,13 @@ import { useState } from 'react';
 import axios from 'axios'
 function App() {
    const [name, setName] = useState("")
-   const [questions, setQuestions] = useState([]);
+   const [questions, setQuestions] = useState()
    const [score, setScore] = useState(0)
    const fetchQuestions = async(category='', difficulty='') =>{
-      const {data} = await axios.get( `https://opentdb.com/api.php?amount=10${
-        category && `&category=${category}`
-      }${difficulty && `&difficulty=${difficulty}`}&type=multiple`)
+      const {data} = await axios.get( `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`)
       
       setQuestions(data.results)
-      console.log("Result" , data.results)
+      console.log("Resultss" , data.results)
     }
   return (
     <BrowserRouter>
