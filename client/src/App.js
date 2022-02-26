@@ -33,7 +33,10 @@ function App() {
       setQuestions={setQuestions}
       
       />}></Route>
-      <Route path='/result' element={<Result/>}></Route>
+      <Route path='/result' element={<Result
+      name={name}
+      score={score}
+      />}></Route>
     </Routes>
 
     </div>
