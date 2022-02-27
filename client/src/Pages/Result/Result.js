@@ -13,7 +13,10 @@ const Result = ({name, score}) => {
   }, [name, navigate])
   return (
     <div className='result'>
-      <span className='title'>Final Score : {score}</span>
+         <span className="subtitle" style={{width:'fit-content', margin: 'auto'}}>
+      {name}
+    </span>
+      <span className='finalScore' style={{ fontSize: 80}}>Final Score : {score}</span>
       <Button 
       variant='contained'
       color='secondary'

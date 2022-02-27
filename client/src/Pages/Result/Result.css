@@ -5,3 +5,10 @@
     height: 60vh;
     text-align: center;
   }
+
+  .finalScore{
+   
+    border: 6px solid gray;
+    width: fit-content;
+    margin: auto;
+  }
